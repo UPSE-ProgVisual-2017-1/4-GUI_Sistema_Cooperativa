@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" 
+fx:controller="controllers.ControllerVehiculo">
+	<!-- TODO Add Nodes -->
+	<Label text="Vehiculo" />
+	<HBox>
+		<Label text="id" />
+		<TextField fx:id="txtID" text="" />
+		<Button fx:id="btnConsultaId" text="..." />
+	</HBox>
+	<HBox>
+		<Label text="Marca" />
+		<ComboBox fx:id="cmbMarca" />
+	</HBox>
+	<HBox>
+		<Label text="Anio de Fabric." />
+		<TextField fx:id="txtAnioFabricacion" />
+	</HBox>
+	<HBox>
+		<Label text="Matricula" />
+		<TextField fx:id="txtMatricula" />
+	</HBox>
+	<HBox>
+		<Label text="Capacidad" />
+		<TextField fx:id="txtCapacidad" />
+	</HBox>
+	<HBox>
+		<Label text="Kilometraje" />
+		<TextField fx:id="txtKilometraje" />
+	</HBox>
+	<HBox>
+		<Label text="Estado" />
+		<ComboBox fx:id="cmbEstado" />
+	</HBox>
+	<HBox>
+		<CheckBox fx:id="chkOcupado" text="Esta Ocupado" />
+	</HBox>
+	<HBox>
+		<Button fx:id="btnGuardar" text="Guardar" />
+		<Button fx:id="btnLimpiar" text="Limpiar" />
+		<Button fx:id="btnEliminar" text="Eliminar" />
+		<Button fx:id="btnCancelar" text="Cancelar" />
+	</HBox>
+</VBox>
+
