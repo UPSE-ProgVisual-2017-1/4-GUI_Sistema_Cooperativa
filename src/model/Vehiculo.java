@@ -13,6 +13,11 @@ public class Vehiculo {
 	private EstadoVehiculo estado;
 	private boolean ocupado;
 	
+	public Vehiculo()
+	{
+		this.id = UUID.randomUUID().toString();
+	}
+	
 	public Vehiculo(MarcaVehiculo marca, String anioFabricacion, String matricula, int capacidadPasajeros, int kmRecorrido,
 			EstadoVehiculo estado, boolean ocupado) {
 		super();
@@ -85,6 +90,13 @@ public class Vehiculo {
 
 	public String getId() {
 		return id;
+	}
+
+	@Override
+	public String toString() {
+		return "Vehiculo [id=" + id + ", marca=" + marca + ", anioFabricacion=" + anioFabricacion + ", matricula="
+				+ matricula + ", capacidadPasajeros=" + capacidadPasajeros + ", kmRecorrido=" + kmRecorrido
+				+ ", estado=" + estado + ", ocupado=" + ocupado + "]";
 	}
 
 	
