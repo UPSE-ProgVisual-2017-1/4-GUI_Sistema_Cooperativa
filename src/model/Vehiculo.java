@@ -6,7 +6,7 @@ public class Vehiculo {
 
 	private String id;
 	private MarcaVehiculo marca;
-	private String anioFabricacion;
+	private int anioFabricacion;
 	private String matricula;
 	private int capacidadPasajeros;
 	private int kmRecorrido;
@@ -18,7 +18,7 @@ public class Vehiculo {
 		this.id = UUID.randomUUID().toString();
 	}
 	
-	public Vehiculo(MarcaVehiculo marca, String anioFabricacion, String matricula, int capacidadPasajeros, int kmRecorrido,
+	public Vehiculo(MarcaVehiculo marca, int anioFabricacion, String matricula, int capacidadPasajeros, int kmRecorrido,
 			EstadoVehiculo estado, boolean ocupado) {
 		super();
 		
@@ -40,11 +40,11 @@ public class Vehiculo {
 		this.marca = marca;
 	}
 
-	public String getAnioFabricacion() {
+	public int getAnioFabricacion() {
 		return anioFabricacion;
 	}
 
-	public void setAnioFabricacion(String anioFabricacion) {
+	public void setAnioFabricacion(int anioFabricacion) {
 		this.anioFabricacion = anioFabricacion;
 	}
 
@@ -94,9 +94,7 @@ public class Vehiculo {
 
 	@Override
 	public String toString() {
-		return "Vehiculo [id=" + id + ", marca=" + marca + ", anioFabricacion=" + anioFabricacion + ", matricula="
-				+ matricula + ", capacidadPasajeros=" + capacidadPasajeros + ", kmRecorrido=" + kmRecorrido
-				+ ", estado=" + estado + ", ocupado=" + ocupado + "]";
+		return  matricula + ": " + marca + "-" + anioFabricacion;
 	}
 
 	

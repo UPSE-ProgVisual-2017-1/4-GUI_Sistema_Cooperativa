@@ -11,7 +11,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			VBox root = FXMLLoader.load(getClass().getResource("/ViewVehiculo.fxml"));
+			VBox root = FXMLLoader.load(getClass().getResource("/ViewCooperativa.fxml"));
 			Scene scene = new Scene(root,400,400);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);

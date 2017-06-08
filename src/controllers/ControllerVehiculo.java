@@ -52,7 +52,7 @@ public class ControllerVehiculo {
 	public void guardar()
 	{
 		vehiculoPojo = new Vehiculo();
-		vehiculoPojo.setAnioFabricacion(txtAnioFabricacion.getText());
+		vehiculoPojo.setAnioFabricacion(Integer.parseInt(txtAnioFabricacion.getText()));
 		vehiculoPojo.setCapacidadPasajeros(spnCapacidad.getValue());
 		vehiculoPojo.setEstado(cmbEstado.getValue());
 		vehiculoPojo.setKmRecorrido(Integer.parseInt(txtKilometraje.getText()));
