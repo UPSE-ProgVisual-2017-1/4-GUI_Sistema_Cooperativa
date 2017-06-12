@@ -13,6 +13,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Context;
+import model.Cooperativa;
 import model.EstadoVehiculo;
 import model.MarcaVehiculo;
 import model.Vehiculo;
@@ -22,29 +24,32 @@ public class ControllerCooperativa {
 	@FXML TextField txtNombre;
 	@FXML ListView<Vehiculo> lstVehiculos;
 	
+	Context context = Context.getInstance();
+	
+	private Cooperativa cooperativa;
+	
 	public void initialize()
 	{
-	 
-		ObservableList<Vehiculo> listaObservableVehiculos = FXCollections.observableArrayList(crearListaVehiculo());
-		lstVehiculos.setItems(listaObservableVehiculos);
+		ObservableList<Vehiculo> listaObservableVehiculos;
+		if(context.getCooperativa()!=null)
+		{
+			cooperativa = context.getCooperativa();
+			listaObservableVehiculos = FXCollections.observableArrayList(cooperativa.getVehiculosRegistrados());
+			lstVehiculos.setItems(listaObservableVehiculos);
+			txtNombre.setText(cooperativa.getNombre());
+			txtNombre.setEditable(false);
+		}	
 	}
 	
-	private List<Vehiculo> crearListaVehiculo()
-	{
-		List<Vehiculo> listaFalsa = new ArrayList<Vehiculo>();
-		
-		Vehiculo v1 = new Vehiculo(MarcaVehiculo.CHEVROLET, 2015, "YTA-1234", 36, 10000, EstadoVehiculo.ACTIVO, false);
-		Vehiculo v2 = new Vehiculo(MarcaVehiculo.HINO, 2017, "YTA-4567", 40, 100000, EstadoVehiculo.ACTIVO, false);
-		
-		listaFalsa.add(v1);
-		listaFalsa.add(v2);
-		return listaFalsa;
-	}
 	
 	public void eliminarVehiculo()
 	{
 		Vehiculo vehiculoABorrar = lstVehiculos.getSelectionModel().getSelectedItem();
 		lstVehiculos.getItems().remove(vehiculoABorrar);
+		if(cooperativa!=null)
+		{
+			cooperativa.getVehiculosRegistrados().remove(vehiculoABorrar);
+		}
 	}
 	
 	public void crearVehiculoPorGUI()
@@ -55,11 +60,26 @@ public class ControllerCooperativa {
 			Scene escena = new Scene(root);
 			escenario.setScene(escena);
 			escenario.show();
+			Stage stageCooperativa = (Stage) txtNombre.getScene().getWindow();
+			stageCooperativa.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public void crearCooperativa()
+	{
+		String nombreCooperativa = txtNombre.getText();
+		if(nombreCooperativa!=null 
+				&& nombreCooperativa.trim()!="")
+		{
+			cooperativa = new Cooperativa(nombreCooperativa);
+			context.setCooperativa(cooperativa);
+		}
+		
+		System.out.println(cooperativa);
 	}
 	
 	

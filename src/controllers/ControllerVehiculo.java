@@ -1,13 +1,21 @@
 package controllers;
 
+import java.io.IOException;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import model.Context;
+import model.Cooperativa;
 import model.EstadoVehiculo;
 import model.MarcaVehiculo;
 import model.Vehiculo;
@@ -31,6 +39,9 @@ public class ControllerVehiculo {
 	
 	private Vehiculo vehiculoPojo;
 	
+	Context context = Context.getInstance();
+	private Cooperativa cooperativa;
+	
 	public void initialize()
 	{
 		ObservableList<EstadoVehiculo> itemsEstadoVehiculo = FXCollections.observableArrayList(EstadoVehiculo.values());
@@ -42,11 +53,20 @@ public class ControllerVehiculo {
 		vehiculoPojo = new Vehiculo();
 		txtID.setEditable(false);
 		
+		cooperativa = context.getCooperativa();
+		
 	}
 	
 	public void limpiar()
 	{
 		txtID.setText("");
+	}
+	
+	public void cargar(Vehiculo v)
+	{
+		txtAnioFabricacion.setText(Integer.toString(v.getAnioFabricacion()));
+		txtID.setText(v.getId());
+		
 	}
 	
 	public void guardar()
@@ -63,6 +83,32 @@ public class ControllerVehiculo {
 		System.out.println(vehiculoPojo.toString());
 		
 		txtID.setText(vehiculoPojo.getId());
+		
+		if(cooperativa != null)
+		{
+			cooperativa.getVehiculosRegistrados().add(vehiculoPojo);
+			System.out.println(cooperativa);
+			llamarGUICooperativa();
+		}else{
+			System.err.println("Error, todo vehiculo debe estar en una cooperativa pero cooperativa es null");
+		}
+		
+	}
+	
+	public void llamarGUICooperativa()
+	{
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("/ViewCooperativa.fxml"));
+			Stage escenario = new Stage();
+			Scene escena = new Scene(root);
+			escenario.setScene(escena);
+			escenario.show();
+			Stage stageCooperativa = (Stage) txtMatricula.getScene().getWindow();
+			stageCooperativa.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 }

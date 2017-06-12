@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="controllers.ControllerCooperativa" >
-	<Label  text="Administracion Cooperativa" />
+<VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="controllers.ControllerCooperativa">
+	<Label text="Administracion Cooperativa" />
 	<HBox>
 		<Label text="Nombre" />
 		<TextField fx:id="txtNombre" />
+      	<Button mnemonicParsing="false" text="Crear Cooperativa" onAction="#crearCooperativa"/>
 	</HBox>
 	<ListView fx:id="lstVehiculos">
 	</ListView>
 	<HBox>
-		<Button text="Crear Vehiculo" onAction="#crearVehiculoPorGUI" />
+		<Button onAction="#crearVehiculoPorGUI" text="Crear Vehiculo" />
 		<Button text="Modificar Vehiculo" />
-		<Button text="Borrar Vehiculo" onAction="#eliminarVehiculo" />
+		<Button onAction="#eliminarVehiculo" text="Borrar Vehiculo" />
 	</HBox>
 	
 </VBox>
-
