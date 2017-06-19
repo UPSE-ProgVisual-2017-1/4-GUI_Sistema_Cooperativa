@@ -54,8 +54,7 @@ fx:controller="controllers.ControllerVehiculo">
 	<HBox>
 		<Button fx:id="btnGuardar" text="Guardar" onAction="#guardar"/>
 		<Button fx:id="btnLimpiar" text="Limpiar" onAction="#limpiar"/>
-		<Button fx:id="btnEliminar" text="Eliminar" />
-		<Button fx:id="btnCancelar" text="Cancelar" />
+		<Button fx:id="btnCancelar" text="Cancelar" onAction="#llamarGUICooperativa"/>
 	</HBox>
 </VBox>
 

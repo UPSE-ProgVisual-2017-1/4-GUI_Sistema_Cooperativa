@@ -55,6 +55,7 @@ public class ControllerCooperativa {
 	public void crearVehiculoPorGUI()
 	{
 		try {
+			context.setVehiculoSeleccionado(null);
 			Parent root = FXMLLoader.load(getClass().getResource("/ViewVehiculo.fxml"));
 			Stage escenario = new Stage();
 			Scene escena = new Scene(root);
@@ -80,6 +81,25 @@ public class ControllerCooperativa {
 		}
 		
 		System.out.println(cooperativa);
+	}
+	
+	public void modificarVehiculo()
+	{
+		try {
+			context.setVehiculoSeleccionado(lstVehiculos.getSelectionModel().getSelectedItem());
+			Parent root = FXMLLoader.load(getClass().getResource("/ViewVehiculo.fxml"));
+			Stage escenario = new Stage();
+			Scene escena = new Scene(root);
+			
+			escenario.setScene(escena);
+			escenario.show();
+			
+			Stage stageCooperativa = (Stage) txtNombre.getScene().getWindow();
+			stageCooperativa.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	

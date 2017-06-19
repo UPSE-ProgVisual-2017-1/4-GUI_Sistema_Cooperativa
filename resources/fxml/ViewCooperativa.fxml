@@ -18,7 +18,7 @@
 	</ListView>
 	<HBox>
 		<Button onAction="#crearVehiculoPorGUI" text="Crear Vehiculo" />
-		<Button text="Modificar Vehiculo" />
+		<Button text="Modificar Vehiculo" onAction="#modificarVehiculo" />
 		<Button onAction="#eliminarVehiculo" text="Borrar Vehiculo" />
 	</HBox>
 	

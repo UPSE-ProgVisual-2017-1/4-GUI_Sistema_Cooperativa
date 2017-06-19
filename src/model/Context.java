@@ -10,6 +10,7 @@ public class Context {
 	}
 		
 	private Cooperativa cooperativa;
+	private Vehiculo vehiculoSeleccionado;
 	
 	public void setCooperativa(Cooperativa cooperativa)
 	{
@@ -20,4 +21,14 @@ public class Context {
 	{
 		return this.cooperativa;
 	}
+
+	public Vehiculo getVehiculoSeleccionado() {
+		return vehiculoSeleccionado;
+	}
+
+	public void setVehiculoSeleccionado(Vehiculo vehiculoSeleccionado) {
+		this.vehiculoSeleccionado = vehiculoSeleccionado;
+	}
+	
+	
 }
