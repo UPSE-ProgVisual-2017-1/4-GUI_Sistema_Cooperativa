@@ -10,51 +10,57 @@
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.SpinnerValueFactory?>
 <?import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.TilePane?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1" 
+<HBox xmlns:fx="http://javafx.com/fxml/1" 
 fx:controller="controllers.ControllerVehiculo">
 	<!-- TODO Add Nodes -->
-	<Label text="Vehiculo" />
-	<HBox>
-		<Label text="id" />
-		<TextField fx:id="txtID" text="" />
-		<Button fx:id="btnConsultaId" text="..." />
-	</HBox>
-	<HBox>
-		<Label text="Marca" />
-		<ComboBox fx:id="cmbMarca" />
-	</HBox>
-	<HBox>
-		<Label text="Anio de Fabric." />
-		<TextField fx:id="txtAnioFabricacion" />
-	</HBox>
-	<HBox>
-		<Label text="Matricula" />
-		<TextField fx:id="txtMatricula" />
-	</HBox>
-	<HBox>
-		<Label text="Capacidad" />
-		<Spinner fx:id="spnCapacidad">
-			<valueFactory>
-				<SpinnerValueFactory.IntegerSpinnerValueFactory min="0" max="100" initialValue="30"/>
-			</valueFactory>
-		</Spinner>
-	</HBox>
-	<HBox>
-		<Label text="Kilometraje" />
-		<TextField fx:id="txtKilometraje" />
-	</HBox>
-	<HBox>
-		<Label text="Estado" />
-		<ComboBox fx:id="cmbEstado" />
-	</HBox>
-	<HBox>
-		<CheckBox fx:id="chkOcupado" text="Esta Ocupado" />
-	</HBox>
-	<HBox>
-		<Button fx:id="btnGuardar" text="Guardar" onAction="#guardar"/>
-		<Button fx:id="btnLimpiar" text="Limpiar" onAction="#limpiar"/>
-		<Button fx:id="btnCancelar" text="Cancelar" onAction="#llamarGUICooperativa"/>
-	</HBox>
-</VBox>
+	<VBox>
+		<Label text="Vehiculo" />
+		<HBox>
+			<Label text="id" />
+			<TextField fx:id="txtID" text="" />
+			<Button fx:id="btnConsultaId" text="..." />
+		</HBox>
+		<HBox>
+			<Label text="Marca" />
+			<ComboBox fx:id="cmbMarca" />
+		</HBox>
+		<HBox>
+			<Label text="Anio de Fabric." />
+			<TextField fx:id="txtAnioFabricacion" />
+		</HBox>
+		<HBox>
+			<Label text="Matricula" />
+			<TextField fx:id="txtMatricula" />
+		</HBox>
+		<HBox>
+			<Label text="Capacidad" />
+			<Spinner fx:id="spnCapacidad">
+				<valueFactory>
+					<SpinnerValueFactory.IntegerSpinnerValueFactory min="0" max="100" initialValue="30"/>
+				</valueFactory>
+			</Spinner>
+		</HBox>
+		<HBox>
+			<Label text="Kilometraje" />
+			<TextField fx:id="txtKilometraje" />
+		</HBox>
+		<HBox>
+			<Label text="Estado" />
+			<ComboBox fx:id="cmbEstado" />
+		</HBox>
+		<HBox>
+			<CheckBox fx:id="chkOcupado" text="Esta Ocupado" />
+		</HBox>
+		<HBox>
+			<Button fx:id="btnGuardar" text="Guardar" onAction="#guardar"/>
+			<Button fx:id="btnLimpiar" text="Limpiar" onAction="#limpiar"/>
+			<Button fx:id="btnCancelar" text="Cancelar" onAction="#llamarGUICooperativa"/>
+		</HBox>
+	</VBox>	
+	<TilePane fx:id="tileAsientos">
+	</TilePane>
+</HBox>
 

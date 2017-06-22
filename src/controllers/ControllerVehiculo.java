@@ -15,6 +15,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 import model.Context;
 import model.Cooperativa;
@@ -37,6 +39,7 @@ public class ControllerVehiculo {
 	@FXML Button btnEliminar;
 	@FXML Button btnCancelar;
 	@FXML Spinner<Integer> spnCapacidad;
+	@FXML TilePane tileAsientos;
 	
 	
 	private Vehiculo vehiculoPojo;
@@ -48,6 +51,8 @@ public class ControllerVehiculo {
 	
 	public void initialize()
 	{
+		
+		crearTilesAsientos();
 		ObservableList<EstadoVehiculo> itemsEstadoVehiculo = FXCollections.observableArrayList(EstadoVehiculo.values());
 		cmbEstado.setItems(itemsEstadoVehiculo);
 		
@@ -160,6 +165,20 @@ public class ControllerVehiculo {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	private void crearTilesAsientos()
+	{
+		tileAsientos.setHgap(4);
+		tileAsientos.setPrefColumns(4);
+		
+		for(int i=0; i< 36; i++)
+		{
+			ToggleButton tgl = 
+					new ToggleButton(Integer.toString(i+1));
+			tileAsientos.getChildren().add(tgl);
+		}
+		
 	}
 	
 }

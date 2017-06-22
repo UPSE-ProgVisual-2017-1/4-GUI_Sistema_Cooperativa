@@ -1,5 +1,7 @@
 package model;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 public class Vehiculo {
@@ -12,6 +14,7 @@ public class Vehiculo {
 	private int kmRecorrido;
 	private EstadoVehiculo estado;
 	private boolean ocupado;
+	private Map<Integer, Boolean> asientosOcupados = new HashMap<Integer, Boolean>();
 	
 	public Vehiculo()
 	{
@@ -91,12 +94,22 @@ public class Vehiculo {
 	public String getId() {
 		return id;
 	}
+	
+	
 
 	@Override
 	public String toString() {
 		return "Vehiculo [id=" + id + ", marca=" + marca + ", anioFabricacion=" + anioFabricacion + ", matricula="
 				+ matricula + ", capacidadPasajeros=" + capacidadPasajeros + ", kmRecorrido=" + kmRecorrido
 				+ ", estado=" + estado + ", ocupado=" + ocupado + "]";
+	}
+
+	public Map<Integer, Boolean> getAsientosOcupados() {
+		return asientosOcupados;
+	}
+
+	public void setAsientosOcupados(Map<Integer, Boolean> asientosOcupados) {
+		this.asientosOcupados = asientosOcupados;
 	}
 
 	/*
